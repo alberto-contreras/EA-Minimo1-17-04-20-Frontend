@@ -1,0 +1,44 @@
+<h3>Add a new Student</h3>
+<div class="container-fluid">
+    <div class="row">
+    
+        <div class="col">
+          
+  <form [formGroup]="registroFormulario" (ngSubmit)="addStudent()">
+    <br>
+    <div>
+  <label>Name:</label>
+  <input formControlName="name" type="text" placeholder="Enter Name" />
+  <div class="alert alert-info" *ngIf="registroFormulario.get('name').hasError('required') && registroFormulario.get('name').touched">
+      <strong>Info!</strong> Name is required.
+    </div>
+  </div>
+
+
+  <label>Address:</label>
+  <input formControlName="address" type="text" placeholder="Enter Address" />
+   <div class="alert alert-info" *ngIf="registroFormulario.get('address').hasError('required') && registroFormulario.get('address').touched">
+      <strong>Info!</strong> Address is needed.
+    </div>
+  <br>
+
+  <label>Phone Name:</label>
+  <input formControlName="namenum" type="text" placeholder="Enter Phone Name"/>
+  <br>
+  <label>Phone Number:</label>
+  <input formControlName="number"type="text" placeholder="Enter Phone Number"/>
+  
+  <br>
+
+  <label>Specialitzation:</label>
+  <input formControlName="studies" type="text" placeholder="Enter Specialitzation"/>
+  <div class="alert alert-info" *ngIf="registroFormulario.get('studies').hasError('required') && registroFormulario.get('studies').touched">
+      <strong>Info!</strong> Studies is needed.
+    </div>
+  <br>
+  <button [disabled]="registroFormulario.invalid" class="btn btn-primary" type="submit" id="BtnRegist">Regist</button>
+</form> 
+<label>{{notificationRegist}}</label>
+        </div>
+    </div>
+</div>

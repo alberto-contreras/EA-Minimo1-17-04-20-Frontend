@@ -1,0 +1,43 @@
+<div class="row">
+    <!-- This is the second column about the degrees-->
+  <div class="col">
+    <h2>Degrees</h2>
+      <div class="btn-group">
+          <button (click)="getDegreeStudents('Network')" class="btn btn-outline-info"> Network Engineer Student</button>  
+          <button (click)="getDegreeStudents('Systems')" class="btn btn-outline-info"> Systems Engineer Student</button>  
+          <button (click)="getDegreeStudents('Aeros')" class="btn btn-outline-info"> Aerospacial Engineer Student</button>
+      </div>
+      <p> </p>
+    <h5>Check Degree Details: {{Degree}}</h5>
+    <div class="list-group list-group-flus" *ngFor = "let student of DegreeStudents">
+      <a  class="list-group-item">{{student.name}}  </a>
+    </div>   
+  </div>
+
+
+
+  <!-- This is the second column about the subjects-->
+  <div class="col">
+    <h2>Table of EETAC Subjects:</h2>          
+  <button (click)="getallSubjectname()" class="btn btn-outline-info"> All the Subjects</button> 
+  <p> </p>
+  <div class="list-group" *ngFor = "let subject of subjects">
+  <a (click)="getSubjDetails(subject.name)" class="list-group-item list-group-item-action">{{subject.name}} (Click for more details) </a>
+  </div>
+  <div class="container-fluid">
+  <p></p>
+  <h5>Subject Details: {{subjectSearch.name}}</h5>
+  <p></p>
+  <li *ngFor = "let student of subjectSearch.students">
+    {{student.name}}  
+  </li> 
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+
