@@ -1,0 +1,82 @@
+<div class="row">
+    <!-- Lista de Resultados Clínicos-->
+  <div class="col">
+    <h2>Resultados Clínicos</h2>
+      <div class="btn-group">
+          <button (click)="getAllResClinico()" class="btn btn-outline-info"> Resultados Clínicos</button>  
+      </div>
+      <p> </p>
+    <h5>Listado:</h5>
+    <div class="container">
+        <ul class="list-group" *ngFor = "let resClinico of allResClinico">
+            <li class="list-group-item d-flex justify-content-between align-items-center" >
+                <a  (click)="getDetailsResClinico(resClinico._id)"class="list-group-item list-group-item-action">{{resClinico.nombre}} (Click para modificar) </a>
+                <div class="container">
+                  <label>- Tipo de Test: {{resClinico.tipoTest}}</label>
+                  <label>- Fecha: {{resClinico.dataResultado}}</label>
+                  <label>- ID Muestra: {{resClinico.idMuestra}}</label>
+                </div>
+          
+              <span class="badge badge-primary badge-pill">{{resClinico.resultado}}</span>
+            </li>
+        </ul>
+    </div> 
+  </div>
+
+
+
+  <!-- This is the second column about the subjects      getDetailsResClinico(resClinico._id)-->
+  <div class="col">
+  <h3>Modificar Resultado Clínico</h3>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+  <form [formGroup]="modificarFormulario" (ngSubmit)="modifyResClinico()">
+    <br>
+    <div>
+  <label>Nombre:</label>
+  <input formControlName="nombre" type="text" placeholder={{specificResult.nombre}} />
+  <div class="alert alert-info" *ngIf="modificarFormulario.get('nombre').hasError('required') && modificarFormulario.get('nombre').touched">
+      <strong>Info!</strong> Es necesario un nombre.
+    </div>
+  </div>
+
+
+  <label>Identificador de Muestra:</label>
+  <input formControlName="idMuestra" type="text" placeholder={{specificResult.idMuestra}} />
+   <div class="alert alert-info" *ngIf="modificarFormulario.get('idMuestra').hasError('required') && modificarFormulario.get('idMuestra').touched">
+      <strong>Info!</strong> Es necesario un identificador.
+    </div>
+  <br>
+
+  <label>Fecha del resultado:</label>
+  <input formControlName="dataResultado" type="text" placeholder={{specificResult.dataResultado}} />
+   <div class="alert alert-info" *ngIf="modificarFormulario.get('dataResultado').hasError('required') && modificarFormulario.get('dataResultado').touched">
+      <strong>Info!</strong> Es necesario una fecha.
+    </div>
+  <br>
+
+  <label>Resultado:</label>
+  <input formControlName="resultado" type="text" placeholder={{specificResult.resultado}} />
+   <div class="alert alert-info" *ngIf="modificarFormulario.get('resultado').hasError('required') && modificarFormulario.get('resultado').touched">
+      <strong>Info!</strong> Es necesario un resultado.
+    </div>
+  <br>
+
+  <label>Tipo de Test (PCR, IgG o IgM):</label>
+  <input formControlName="tipoTest" type="text" placeholder={{specificResult.tipoTest}} />
+   <div class="alert alert-info" *ngIf="modificarFormulario.get('tipoTest').hasError('required') && modificarFormulario.get('tipoTest').touched">
+      <strong>Info!</strong> Es necesario un Tipo de Test.
+    </div>
+  <br>
+
+
+<br>
+  <button [disabled]="modificarFormulario.invalid" class="btn btn-primary" type="submit" >Modificar Resultado</button>
+</form> 
+<br>
+<label>{{notificationModif}}</label>
+        </div>
+    </div>
+</div>
+</div>

@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-  public nameToAdd : String;
+  public idToAdd : String;
   public SubjectToAdd: String;
   constructor(private studentService: StudentService) { }
   public allStudents : Student[];
@@ -19,13 +19,14 @@ export class StudentComponent implements OnInit {
   }
   async getAllStudents(){
     this.allStudents = await this.studentService.getAllStudentName().toPromise();
+  
   }
   LabelCheckAddUsersubject(event: any){
     this.SubjectToAdd=event.target.value;
   }
-  async addStudentToSubject(nameSt:String){
-    this.nameToAdd = nameSt;
-    this.studentService.addStudentToSubj(this.nameToAdd,this.SubjectToAdd).subscribe(
+  async addStudentToSubject(idStudent:String){
+    this.idToAdd = idStudent;
+    this.studentService.addStudentToSubj(this.idToAdd,this.SubjectToAdd).subscribe(
      (data) => {
        console.log("data: ", data);
        this.notificationAddition = 'Succesufully Added'

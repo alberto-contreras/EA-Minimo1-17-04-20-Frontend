@@ -14,8 +14,8 @@ export class StudentRegisterComponent implements OnInit {
   constructor(private studentService : StudentService) {
    
    }
-  studentToAdd = new Student();
-  phoneToAdd = new Phone();
+  studentToAdd : Student;
+  phoneToAdd : Phone;
   public notificationRegist :String = '';
 
   registroFormulario = new FormGroup({
@@ -29,6 +29,8 @@ export class StudentRegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   addStudent(){
+    this.studentToAdd = new Student();
+    this.phoneToAdd = new Phone();
     //PARSING ALL THE VALUES
     console.log('Trying to addStudent')
    this.studentToAdd.name = this.registroFormulario.controls['name'].value;
@@ -44,7 +46,7 @@ export class StudentRegisterComponent implements OnInit {
       },
     (error) => {
         console.log("error: ", error);
-        this.notificationRegist = 'Not possible to addd';
+        this.notificationRegist = 'Not possible to add';
     }
     );}
 

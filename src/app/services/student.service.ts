@@ -27,12 +27,12 @@ export class StudentService {
      return this.http.get<Student>(`${this.rooturl.urlStudent}/details?name=${this.studentname}`);
 
    }
-   addStudentToSubj(name: String, subj: String): Observable<any> { //Add student to Subject
+   addStudentToSubj(idStudent: String, subj: String): Observable<any> { //Add student to Subject
     console.log("ADDING NEW STUDENT");
     let url = "http://localhost:3702/school/students/subj/"
     console.log(url);
     return this.http.post(url,{
-      name: name,
+      _id: idStudent,
       subject: subj
     })
   }

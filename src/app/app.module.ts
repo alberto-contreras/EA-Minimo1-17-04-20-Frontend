@@ -9,6 +9,8 @@ import { SchoolComponent } from './components/school/school.component';
 import { StudentComponent } from './components/student/student.component';
 
 import { StudentRegisterComponent } from './components/student-register/student-register.component';
+import { ResClinicoRegisterComponent } from './components/res-clinico-register/res-clinico-register.component';
+import { ResClinicoComponent } from './components/res-clinico/res-clinico.component';
 
 
 
@@ -16,7 +18,9 @@ import { StudentRegisterComponent } from './components/student-register/student-
 const appRoutes: Routes = [
   { path: 'school', component: SchoolComponent },
   { path: 'students', component: StudentComponent },
-  { path: 'registerStudent', component: StudentRegisterComponent }
+  { path: 'registerStudent', component: StudentRegisterComponent },
+  { path: 'registerResClinico', component: ResClinicoRegisterComponent},
+  { path: 'ResClinico', component: ResClinicoComponent}
 
 ];
 
@@ -26,6 +30,8 @@ const appRoutes: Routes = [
     SchoolComponent,
     StudentComponent,
     StudentRegisterComponent,
+    ResClinicoRegisterComponent,
+    ResClinicoComponent,
 
 
   ],

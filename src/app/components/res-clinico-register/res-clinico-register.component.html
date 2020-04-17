@@ -1,0 +1,53 @@
+<h3>Añadir Resultado Clinico</h3>
+<div class="container-fluid">
+    <div class="row">
+    
+        <div class="col">
+          
+  <form [formGroup]="registroFormulario" (ngSubmit)="addResClinico()">
+    <br>
+    <div>
+  <label>Nombre:</label>
+  <input formControlName="nombre" type="text" placeholder="Introduce Nombre" />
+  <div class="alert alert-info" *ngIf="registroFormulario.get('nombre').hasError('required') && registroFormulario.get('nombre').touched">
+      <strong>Info!</strong> Es necesario un nombre.
+    </div>
+  </div>
+
+
+  <label>Identificador de Muestra:</label>
+  <input formControlName="idMuestra" type="text" placeholder="Introduce ID-Muestra" />
+   <div class="alert alert-info" *ngIf="registroFormulario.get('idMuestra').hasError('required') && registroFormulario.get('idMuestra').touched">
+      <strong>Info!</strong> Es necesario un identificador.
+    </div>
+  <br>
+
+  <label>Fecha del resultado:</label>
+  <input formControlName="dataResultado" type="text" placeholder="Introduce Fecha" />
+   <div class="alert alert-info" *ngIf="registroFormulario.get('dataResultado').hasError('required') && registroFormulario.get('dataResultado').touched">
+      <strong>Info!</strong> Es necesario una fecha.
+    </div>
+  <br>
+
+  <label>Resultado:</label>
+  <input formControlName="resultado" type="text" placeholder="Introduce Resultado" />
+   <div class="alert alert-info" *ngIf="registroFormulario.get('resultado').hasError('required') && registroFormulario.get('resultado').touched">
+      <strong>Info!</strong> Es necesario un resultado.
+    </div>
+  <br>
+
+  <label>Tipo de Test (PCR, IgG o IgM):</label>
+  <input formControlName="tipoTest" type="text" placeholder="Introduce Resultado" />
+   <div class="alert alert-info" *ngIf="registroFormulario.get('tipoTest').hasError('required') && registroFormulario.get('tipoTest').touched">
+      <strong>Info!</strong> Es necesario un Tipo de Test.
+    </div>
+  <br>
+
+
+
+  <button [disabled]="registroFormulario.invalid" class="btn btn-primary" type="submit" >Añadir Resultado</button>
+</form> 
+<label>{{notificationRegist}}</label>
+        </div>
+    </div>
+</div>
